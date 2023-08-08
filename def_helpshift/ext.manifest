@@ -1,0 +1,8 @@
+# C++ symbol in your extension
+name: "Helpshift"
+
+platforms:
+    android:
+      context:
+        aaptExtraPackages: ['com.helpshift', 'com.helpshift.layout']
+        jetifier: true

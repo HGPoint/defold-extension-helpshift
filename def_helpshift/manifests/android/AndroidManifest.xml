@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="{{android.package}}">
+    <uses-sdk android:minSdkVersion="{{android.minimum_sdk_version}}"
+              android:targetSdkVersion="{{android.target_sdk_version}}"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+        <application>
+        <activity
+            android:name="com.helpshift.activities.HSMainActivity"
+            android:configChanges="screenSize|orientation"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.helpshift.activities.HSDebugActivity"
+            android:configChanges="screenSize|orientation"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <!-- Do not edit the below comment- We are adding unity activity in manifest while creating package -->
+        <!-- Unity Activity -->
+    </application>
+
+</manifest>

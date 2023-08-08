@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hs__chat_fragment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/hs__webview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.helpshift.views.HSWebView
+            android:id="@+id/hs__webchat_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/hs__loading_view"
+        layout="@layout/hs__loading_view_layout"/>
+
+    <include
+        android:id="@+id/hs__retry_view"
+        layout="@layout/hs__retry_view_layout"
+        android:visibility="gone" />
+
+</RelativeLayout>
+

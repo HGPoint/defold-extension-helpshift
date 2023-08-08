@@ -1,0 +1,5 @@
+[project]
+title = def_helpshift
+
+[library]
+include_dirs = def_helpshift

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".faq.HSHelpcenterFragment">
+
+    <LinearLayout
+        android:id="@+id/hs__helpcenter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.helpshift.views.HSWebView
+            android:id="@+id/hs__helpcenter_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <include
+        android:id="@+id/hs__loading_view"
+        layout="@layout/hs__loading_view_layout"/>
+
+
+    <include
+        android:id="@+id/hs__retry_view"
+        layout="@layout/hs__retry_view_layout"
+        android:visibility="gone" />
+</FrameLayout>
