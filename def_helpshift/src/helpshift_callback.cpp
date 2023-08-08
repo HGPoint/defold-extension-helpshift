@@ -21,9 +21,6 @@ static void DestroyCallback()
 
 static void InvokeCallback(MessageId type, const char* json)
 {
-    dmLogInfo("InvokeCallback");
-    dmLogInfo(json)
-
     if (!dmScript::IsCallbackValid(m_luaCallback))
     {
         dmLogError("Helpshift callback is invalid. Set new callback using `appsflyer.set_callback()` function.");
@@ -41,7 +38,6 @@ static void InvokeCallback(MessageId type, const char* json)
     lua_pushnumber(L, type);
     dmScript::JsonToLua(L, json, strlen(json)); 
 
-    dmLogInfo("dmScript::PCall(L, 3, 0);");
     int ret = dmScript::PCall(L, 3, 0);
     (void)ret;
     dmScript::TeardownCallback(m_luaCallback);

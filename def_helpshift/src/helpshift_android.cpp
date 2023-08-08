@@ -107,58 +107,45 @@ static HelpshiftJniBridge g_HelpShift;
 
 static void InitJNIMethods(JNIEnv* env, jclass cls)
 {
-    dmLogInfo("Helpshift InitJNIMethods");
     g_HelpShift.m_Initialize = env->GetMethodID(cls, "Initialize", "(Ljava/lang/String;Ljava/lang/String;)V");
     g_HelpShift.m_AddUserData = env->GetMethodID(cls, "AddUserData", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
     g_HelpShift.m_ShowConversation = env->GetMethodID(cls, "ShowConversation", "()V");
     g_HelpShift.m_showFAQ = env->GetMethodID(cls, "showFAQ", "()V");
     g_HelpShift.m_requestUnreadMessageCount = env->GetMethodID(cls, "requestUnreadMessageCount", "()V");
-    dmLogInfo("Helpshift InitJNIMethods end");
 }
 
 void Initialize_Ext()
 {
-    dmLogInfo("Helpshift Initialize_Ext");
     dmAndroid::ThreadAttacher threadAttacher;
     JNIEnv* env = threadAttacher.GetEnv();
     jclass cls = dmAndroid::LoadClass(env, "com.defold.hgpoint.HelpshiftJNI");
     InitJNIMethods(env, cls);
     jmethodID jni_constructor = env->GetMethodID(cls, "<init>", "(Landroid/app/Activity;)V");
     g_HelpShift.m_HelpshiftJniBridgeJNI = env->NewGlobalRef(env->NewObject(cls, jni_constructor, threadAttacher.GetActivity()->clazz));
-    dmLogInfo("Helpshift Initialize_Ext end");
 }
 
 void Initialize(const char* domain, const char* app_id)
 {
-    dmLogInfo("Helpshift Initialize");
     CallVoidMethodCharChar(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_Initialize, domain, app_id);
-    dmLogInfo("Helpshift Initialize end");
 }
 
 void AddUserData(const char* key, const char* type, const char* value)
 {
-    dmLogInfo("Helpshift AddUserData");
     CallVoidMethodCharCharChar(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_AddUserData, key, type, value);
-    dmLogInfo("Helpshift AddUserData end");
 }
 
 void ShowConversation()
 {
-    dmLogInfo("Helpshift Showconversation");
     CallVoidMethod(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_ShowConversation);
-    dmLogInfo("Helpshift Showconversation end");
 }
 
 void ShowFAQ()
 {
-    dmLogInfo("Helpshift ShowFAQ");
     CallVoidMethod(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_showFAQ);
-    dmLogInfo("Helpshift ShowFAQ end");
 }
 
 void RequestUnreadMessageCount()
 {
-    dmLogInfo("Helpshift RequestUnreadMessageCount");
     CallVoidMethod(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_requestUnreadMessageCount);
 }
 

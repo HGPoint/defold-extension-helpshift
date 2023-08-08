@@ -82,7 +82,6 @@ public class HelpshiftJNI {
         Helpshift.setHelpshiftEventsListener(new HelpshiftEventsListener() {
                 @Override
                 public void onEventOccurred(@NonNull String eventName, Map<String, Object> data) {
-                    Log.e(TAG, "onEventOccurred: " + eventName);
                     int event = 0;
                     switch(eventName){
                         case HelpshiftEvent.WIDGET_TOGGLE:
@@ -173,8 +172,6 @@ public class HelpshiftJNI {
                     catch (IllegalAccessException e) {
                         Log.e(TAG, "Unable to encode Convector.toJSON message data: " + e.getLocalizedMessage());
                     }
-
-                    Log.e(TAG, "onEventOccurred : dataStr: " + dataStr);
 
                     try {
                         JSONObject obj = new JSONObject();
