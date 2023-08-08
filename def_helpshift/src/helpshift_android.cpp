@@ -100,6 +100,7 @@ struct HelpshiftJniBridge
     jmethodID       m_AddUserData;
     jmethodID       m_ShowConversation;
     jmethodID       m_showFAQ;
+    jmethodID       m_requestUnreadMessageCount;
 };
 
 static HelpshiftJniBridge g_HelpShift;
@@ -111,6 +112,7 @@ static void InitJNIMethods(JNIEnv* env, jclass cls)
     g_HelpShift.m_AddUserData = env->GetMethodID(cls, "AddUserData", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
     g_HelpShift.m_ShowConversation = env->GetMethodID(cls, "ShowConversation", "()V");
     g_HelpShift.m_showFAQ = env->GetMethodID(cls, "showFAQ", "()V");
+    g_HelpShift.m_requestUnreadMessageCount = env->GetMethodID(cls, "requestUnreadMessageCount", "()V");
     dmLogInfo("Helpshift InitJNIMethods end");
 }
 
@@ -152,6 +154,12 @@ void ShowFAQ()
     dmLogInfo("Helpshift ShowFAQ");
     CallVoidMethod(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_showFAQ);
     dmLogInfo("Helpshift ShowFAQ end");
+}
+
+void RequestUnreadMessageCount()
+{
+    dmLogInfo("Helpshift RequestUnreadMessageCount");
+    CallVoidMethod(g_HelpShift.m_HelpshiftJniBridgeJNI, g_HelpShift.m_requestUnreadMessageCount);
 }
 
 } // namespace

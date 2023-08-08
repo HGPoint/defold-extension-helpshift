@@ -7,4 +7,5 @@ namespace dmHelpshift {
     void AddUserData(const char* key,const char* type, const char* value);
     void ShowConversation();
     void ShowFAQ();
+    void RequestUnreadMessageCount();
 }

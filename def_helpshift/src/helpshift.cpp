@@ -88,6 +88,13 @@ static int Lua_SetCallback(lua_State *L)
     return 0;
 }
 
+static int Lua_RequestUnreadMessageCount(lua_State *L)
+{
+    DM_LUA_STACK_CHECK(L, 0);
+    RequestUnreadMessageCount();
+    return 0;
+}
+
 // Functions exposed to Lua
 static const luaL_reg Module_methods[] =
 {
@@ -96,6 +103,7 @@ static const luaL_reg Module_methods[] =
     {"showFAQ", Lua_ShowFAQ},
     {"set_callback", Lua_SetCallback},
     {"add_userdata", Lua_AddUserData},
+    {"request_unread_message_count", Lua_RequestUnreadMessageCount},
     {0, 0}
 };
 

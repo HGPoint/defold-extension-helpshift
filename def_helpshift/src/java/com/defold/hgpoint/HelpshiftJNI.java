@@ -87,54 +87,79 @@ public class HelpshiftJNI {
                     switch(eventName){
                         case HelpshiftEvent.WIDGET_TOGGLE:
                             event = WIDGET_TOGGLE;
+                            break;
                         case HelpshiftEvent.DATA_SDK_VISIBLE:
                             event = DATA_SDK_VISIBLE;
+                            break;
                         case HelpshiftEvent.CONVERSATION_START:
                             event = CONVERSATION_START;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE:
                             event = DATA_MESSAGE;
+                            break;
                         case HelpshiftEvent.MESSAGE_ADD:
                             event = MESSAGE_ADD;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_TYPE:
                             event = DATA_MESSAGE_TYPE;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_BODY:
                             event = DATA_MESSAGE_BODY;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_TYPE_ATTACHMENT:
                             event = DATA_MESSAGE_TYPE_ATTACHMENT;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_TYPE_TEXT:
                             event = DATA_MESSAGE_TYPE_TEXT;
+                            break;
                         case HelpshiftEvent.CSAT_SUBMIT:
                             event = CSAT_SUBMIT;
+                            break;
                         case HelpshiftEvent.DATA_CSAT_RATING:
                             event = DATA_CSAT_RATING;
+                            break;
                         case HelpshiftEvent.DATA_ADDITIONAL_FEEDBACK:
                             event = DATA_ADDITIONAL_FEEDBACK;
+                            break;
                         case HelpshiftEvent.CONVERSATION_STATUS:
                             event = CONVERSATION_STATUS;
+                            break;
                         case HelpshiftEvent.DATA_LATEST_ISSUE_ID:
                             event = DATA_LATEST_ISSUE_ID;
+                            break;
                         case HelpshiftEvent.DATA_LATEST_ISSUE_PUBLISH_ID:
                             event = DATA_LATEST_ISSUE_PUBLISH_ID;
+                            break;
                         case HelpshiftEvent.DATA_IS_ISSUE_OPEN:
                             event = DATA_IS_ISSUE_OPEN;
+                            break;
                         case HelpshiftEvent.CONVERSATION_END:
                             event = CONVERSATION_END;
+                            break;
                         case HelpshiftEvent.CONVERSATION_REJECTED:
                             event = CONVERSATION_REJECTED;
+                            break;
                         case HelpshiftEvent.CONVERSATION_RESOLVED:
                             event = CONVERSATION_RESOLVED;
+                            break;
                         case HelpshiftEvent.CONVERSATION_REOPENED:
                             event = CONVERSATION_REOPENED;
+                            break;
                         case HelpshiftEvent.SDK_SESSION_STARTED:
                             event = SDK_SESSION_STARTED;
+                            break;
                         case HelpshiftEvent.SDK_SESSION_ENDED:
                             event = SDK_SESSION_ENDED;
+                            break;
                         case HelpshiftEvent.RECEIVED_UNREAD_MESSAGE_COUNT:
                             event = RECEIVED_UNREAD_MESSAGE_COUNT;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_COUNT:
-                            event = DATA_MESSAGE_COUNT;                        
+                            event = DATA_MESSAGE_COUNT;
+                            break;
                         case HelpshiftEvent.DATA_MESSAGE_COUNT_FROM_CACHE:
                             event = DATA_MESSAGE_COUNT_FROM_CACHE;
+                            break;
                     }
 
                     String dataStr = new String();
@@ -172,7 +197,6 @@ public class HelpshiftJNI {
     }
 
     public void showFAQ() {
-        
         Helpshift.showFAQs(this.activity, faqData);
     }
 
@@ -181,5 +205,9 @@ public class HelpshiftJNI {
         valued.put("type", type);
         valued.put("value", value);
         cifMap.put(key, valued);
+    }
+
+    public void requestUnreadMessageCount() {
+        Helpshift.requestUnreadMessageCount(true);
     }
 }
