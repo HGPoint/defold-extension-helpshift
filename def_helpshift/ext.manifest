@@ -6,3 +6,4 @@ platforms:
       context:
         aaptExtraPackages: ['com.helpshift', 'com.helpshift.layout']
         jetifier: true
+

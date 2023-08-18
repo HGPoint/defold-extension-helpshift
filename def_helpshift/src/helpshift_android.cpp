@@ -3,12 +3,10 @@
 #include "com_defold_helpshift_HelpshiftJNI.h"
 #include <dmsdk/dlib/android.h>
 #include <dmsdk/sdk.h>
-
 #include "helpshift_callback_private.h"
 
 JNIEXPORT void JNICALL Java_com_defold_hgpoint_HelpshiftJNI_helpshiftAddToQueue(JNIEnv * env, jclass cls, jint jmsg, jstring jjson)
 {
-    dmLogInfo("Java_com_defold_hgpoint_HelpshiftJNI_helpshiftAddToQueue");
     const char* json = env->GetStringUTFChars(jjson, 0);
     dmHelpshift::AddToQueueCallback((dmHelpshift::MessageId)jmsg, json);
     env->ReleaseStringUTFChars(jjson, json);

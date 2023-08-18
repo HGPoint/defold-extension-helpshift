@@ -81,7 +81,6 @@ void AddToQueueCallback(MessageId type, const char* json)
         m_callbacksQueue.OffsetCapacity(2);
     }
     m_callbacksQueue.Push(data);
-    dmLogInfo("m_callbacksQueue.Push(data);")
 }
 
 void UpdateCallback()

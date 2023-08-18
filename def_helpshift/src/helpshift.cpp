@@ -7,7 +7,7 @@
 // include the Defold SDK
 #include <dmsdk/sdk.h>
 
-#if defined(DM_PLATFORM_ANDROID)
+#if defined(DM_PLATFORM_ANDROID) || defined(DM_PLATFORM_IOS)
 
 #include "helpshift_callback_private.h"
 
@@ -151,16 +151,13 @@ static void LuaInit(lua_State* L)
 
 static dmExtension::Result AppInitializeHelpshift(dmExtension::AppParams* params)
 {
-    dmLogInfo("AppInitializeHelpshift");
     Initialize_Ext();
-    dmLogInfo("AppInitializeHelpshift end");
     return dmExtension::RESULT_OK;
 }
 
 static dmExtension::Result InitializeHelpshift(dmExtension::Params* params)
 {
     // Init Lua
-    dmLogInfo("InitializeHelpshift");
     LuaInit(params->m_L);
     InitializeCallback();
     dmLogInfo("Registered %s Extension", MODULE_NAME);
@@ -169,13 +166,11 @@ static dmExtension::Result InitializeHelpshift(dmExtension::Params* params)
 
 static dmExtension::Result AppFinalizeHelpshift(dmExtension::AppParams* params)
 {
-    dmLogInfo("AppFinalizeHelpshift");
     return dmExtension::RESULT_OK;
 }
 
 static dmExtension::Result FinalizeHelpshift(dmExtension::Params* params)
 {
-    dmLogInfo("FinalizeHelpshift");
     return dmExtension::RESULT_OK;
 }
 

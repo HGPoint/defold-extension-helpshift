@@ -13,11 +13,9 @@ import java.util.Currency;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Locale;
-import org.json.JSONObject;
-import org.json.JSONException;
 import androidx.annotation.NonNull;
 
-import com.defold.hgpoint.JSONConvector;
+import org.json.JSONObject;
 
 
 public class HelpshiftJNI {
@@ -161,25 +159,11 @@ public class HelpshiftJNI {
                             break;
                     }
 
-                    String dataStr = new String();
-                    JSONConvector Convector = null;
-                    try {
-                        dataStr = Convector.toJSON(data);
-                    }
-                    catch (JSONException e) {
-                        Log.e(TAG, "Unable to encode Convector.toJSON message data: " + e.getLocalizedMessage());
-                    }
-                    catch (IllegalAccessException e) {
-                        Log.e(TAG, "Unable to encode Convector.toJSON message data: " + e.getLocalizedMessage());
-                    }
-
-                    try {
-                        JSONObject obj = new JSONObject();
-                        obj.put("data", dataStr);
-                        helpshiftAddToQueue(event, obj.toString());
-                    } catch (JSONException e) {
-                        Log.e(TAG, "Unable to encode CONVERSION_DATA_FAIL message data: " + e.getLocalizedMessage());
-                    }    
+                    JSONObject jsonData = new JSONObject(data);
+                    String dataStr = jsonData.toString();
+                    System.out.println("dataStr");
+                    System.out.println(dataStr);
+                    helpshiftAddToQueue(event, jsonData.toString());
                 }
 
                 @Override
