@@ -65,7 +65,6 @@ public class HelpshiftJNI {
 
     public void Initialize(final String domain, final String appID) {
         Map<String, Object> config = new HashMap<>();
-        config.put("enableLogging",  true);
         config.put("screenOrientation", ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         try {
